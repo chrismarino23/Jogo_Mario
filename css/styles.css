@@ -1,0 +1,97 @@
+/*Dando um reset no estilo da página para não puxar nenhum estilo herdado de cache ou página/ brownser*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%; /*para ver espaço lateral que ocupa*/
+    height: 500px; /*para ver o tamanho que ocupará*/
+    border-bottom:  15px solid #378d37; /*para ver o espaço que ocupará*/
+    margin: 0 auto; /*resetando a margem*/
+    position: relative; /*para que as imagens respeitem
+     a delimitação da área e não ultrapasse a área da div*/
+    
+   overflow: hidden; /*esconde tudo q sai das delimitações*/  
+
+   /*cria o céu de forma gradiante*/
+   background: linear-gradient(rgb(61, 161, 249), rgb(165, 202, 245));
+}
+
+/*Estilizando o mário*/
+.mario {
+    width: 150px; /*tamanho*/
+    position: absolute; /*posição*/
+    bottom: -14px; /*para q o mário esteja no "chão" */
+
+}
+
+.jump {
+    animation: jump 500ms ease-out; 
+    /*chama a animação do pulo mário*/
+    /*500ms = tempo da animação, ease-out = saída suave
+    para que a caída do pulo não seja "brusca"*/
+}
+
+.clouds {
+    width: 850px;
+    position: absolute;
+}
+
+/* Estilizando a classe do Pipe (tubo do mário) */
+.pipe {
+    position: absolute; 
+    /*para que a posição das várias imagens 
+    não interfiram no comportamento uma da outra*/
+    
+    bottom: 0; /*para fixar o conteúdo
+     dentro da classe pipe na linha inferior da delimitação*/
+    
+    width: 125px; /*tamanho*/
+    animation: pipe-animation 1.2s infinite linear;
+    /*medindo a proximidade do mário e do cano*/
+
+    /*Para usar a animação do keyframe criada no @keyframe
+    é necessário citá-la na classe pipe conforme abaixo*/
+
+ 
+
+    /*2s = tempo, infinite= para rodar animação infinitamente
+    e por fim, linear para que corra numa velocidade 
+    constante no fim para o começo*/
+}
+
+/*Criando key frame para animar a transição*/
+@keyframes pipe-animation {
+    from {
+        right: -100px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+/*Criando a animação de keyframe do pulo do mário*/
+@keyframes jump {
+    0% {
+        bottom: -14px;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: -14px;
+    }
+}
