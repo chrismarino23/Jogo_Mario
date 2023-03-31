@@ -5,6 +5,9 @@ const mario = document.querySelector('.mario');
 /* pegando o elemento html e passando para o JS identificar */
 const pipe = document.querySelector('.pipe');
 
+/* pegando o elemento cloud */
+const cloud = document.querySelector('.clouds');
+
 /*informando que existirá uma constante de nome jump que recebe o que contém 
 dentro da constante mario criada acima, e adicionará a classe jump criada
 na página index.html, e o classlist é para listar as classes e conseguir 
@@ -35,6 +38,7 @@ const loop = setInterval(() => {
     //criado constantes para verificar posição do mário e do tubo
     const pipePosition = pipe.offsetLeft;
     const marioPosition =  +window.getComputedStyle(mario).bottom.replace('px', '');
+    const cloudPosition = +window.getComputedStyle(cloud).bottom.replace('px', '');
     
     /*condição de verificação se a posição do tubo é menor que 105 e maior q 0
     e também posição do mário é menor que 80 (para altura do pulo)*/
@@ -51,6 +55,9 @@ const loop = setInterval(() => {
         mario.src = './images/mario-gameOver.png';
         mario.style.width = '180px';
         mario.style.marginLeft = '-11px';
+        
+        cloud.style.animation ='none'; 
+        cloud.style.left = `${cloudPosition}px`; 
 
         clearInterval(loop);
 
@@ -63,3 +70,4 @@ para que faça um evento ou ouvir algo, e esse vento será o keydown ou seja
 quando uma key for pressionada no caso alguma tecla, e a tecla específicada
 foi a de jump */
 document.addEventListener('keydown', jump);
+
