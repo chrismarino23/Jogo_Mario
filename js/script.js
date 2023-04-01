@@ -8,6 +8,10 @@ const pipe = document.querySelector('.pipe');
 /* pegando o elemento cloud */
 const cloud = document.querySelector('.clouds');
 
+/* pegando o elemento da div container botão "jogar novamente" */
+const botao = document.querySelector('.container');
+
+
 /*informando que existirá uma constante de nome jump que recebe o que contém 
 dentro da constante mario criada acima, e adicionará a classe jump criada
 na página index.html, e o classlist é para listar as classes e conseguir 
@@ -58,6 +62,8 @@ const loop = setInterval(() => {
         
         cloud.style.animation ='none'; 
         cloud.style.left = `${cloudPosition}px`; 
+
+        botao.style.display = 'block';
 
         clearInterval(loop);
 
