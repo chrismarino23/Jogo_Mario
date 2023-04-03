@@ -34,6 +34,12 @@
     para que a caída do pulo não seja "brusca"*/
 }
 
+.gameOver {
+    margin-left: 400px;
+    display: none;
+    position: absolute;
+}
+
 .clouds {
     width: 560px;
     height: 300px;
@@ -109,7 +115,6 @@
     }
 }
 
-
 .container {
     /* background: green; */
     margin-top: 20%;
@@ -125,13 +130,18 @@
     border: 0;
     border-radius: 5px;
     top: 300px;
-    left: 400px;
+    left: 630px;
     position: absolute;
+    fill-opacity: 70%;
+    color: whitesmoke;
+    background-color: #313131e7;
+    box-shadow: 0 0 40px white;
 }
 
 .botao:hover {
-    color: whitesmoke;
-    background-color: #333;
-    box-shadow: 1px solid white;
+    color: #333;
+    background-color: whitesmoke;
+    box-shadow: 0 0 20px black;
     cursor: pointer;
+    opacity: 100%;
 }

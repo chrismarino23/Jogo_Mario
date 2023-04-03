@@ -11,6 +11,10 @@ const cloud = document.querySelector('.clouds');
 /* pegando o elemento da div container botão "jogar novamente" */
 const botao = document.querySelector('.container');
 
+/*pegando o elemento da div game_over para informar quando deverá
+aparecer o GAME OVER na tela */
+const game_over = document.querySelector('.gameOver');
+
 
 /*informando que existirá uma constante de nome jump que recebe o que contém 
 dentro da constante mario criada acima, e adicionará a classe jump criada
@@ -42,13 +46,13 @@ const loop = setInterval(() => {
     //criado constantes para verificar posição do mário e do tubo
     const pipePosition = pipe.offsetLeft;
     const marioPosition =  +window.getComputedStyle(mario).bottom.replace('px', '');
-    const cloudPosition = +window.getComputedStyle(cloud).bottom.replace('px', '');
-    
+    const cloudPosition = +window.getComputedStyle(cloud).left.replace('px', '');
+
     /*condição de verificação se a posição do tubo é menor que 105 e maior q 0
     e também posição do mário é menor que 80 (para altura do pulo)*/
     if (pipePosition <= 105 && pipePosition > 0 && marioPosition < 80) {
 
-        //Caso sim, então para-se a animação de ambos.
+        //Caso sim, então para-se a animação de todos.
 
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
@@ -63,9 +67,19 @@ const loop = setInterval(() => {
         cloud.style.animation ='none'; 
         cloud.style.left = `${cloudPosition}px`; 
 
+        game_over.style.display = 'block';
+
         botao.style.display = 'block';
 
         clearInterval(loop);
+        
+        const msgm = setInterval(() => {
+            if (loop.clearInterval = true )
+                var jogador = new Jogador(prompt("Digite seu Nome para guardar sua pontuação", ["Insira seu Nick aqui"]))
+                clearInterval(msgm);
+                console.log(Jogador.name)
+        }, 50);
+        
 
     }
  //caso não, o jogo continua normalmente.
@@ -76,4 +90,31 @@ para que faça um evento ou ouvir algo, e esse vento será o keydown ou seja
 quando uma key for pressionada no caso alguma tecla, e a tecla específicada
 foi a de jump */
 document.addEventListener('keydown', jump);
+
+class Jogador{
+    constructor(name, pontuacao) {
+        this.name = this._captalize(name);
+        this.pontuacao = pontuacao;
+    }
+
+    get name(){
+        return this._name
+    }
+
+    get pontuacao(){
+        return this._pontuacao
+    }
+
+    set name(string) {
+        this._name = this._captalize(string)
+    }
+
+    set pontuacao(number) {
+        this._pontuacao = number
+    }
+
+    _captalize(string) {
+        return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+    }
+}
 
