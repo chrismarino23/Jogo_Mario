@@ -16,6 +16,8 @@ aparecer o GAME OVER na tela */
 const game_over = document.querySelector('.gameOver');
 
 
+var score = 0;
+
 /*informando que existirá uma constante de nome jump que recebe o que contém 
 dentro da constante mario criada acima, e adicionará a classe jump criada
 na página index.html, e o classlist é para listar as classes e conseguir 
@@ -43,12 +45,18 @@ const jump = () => {
 /* criando um loop de verificação */
 
 const loop = setInterval(() => {
-    //criado constantes para verificar posição do mário e do tubo
+    //criado constantes para verificar posição do mário, tubo e nuvens.
     const pipePosition = pipe.offsetLeft;
     const marioPosition =  +window.getComputedStyle(mario).bottom.replace('px', '');
     const cloudPosition = +window.getComputedStyle(cloud).left.replace('px', '');
+   
+    //Faz a contagem do tempo e exibição
+  
+    score ++;
+    score = (score + score)/2;
 
-    /*condição de verificação se a posição do tubo é menor que 105 e maior q 0
+
+     /*condição de verificação se a posição do tubo é menor que 105 e maior q 0
     e também posição do mário é menor que 80 (para altura do pulo)*/
     if (pipePosition <= 105 && pipePosition > 0 && marioPosition < 80) {
 
@@ -70,17 +78,19 @@ const loop = setInterval(() => {
         game_over.style.display = 'block';
 
         botao.style.display = 'block';
-
+        
         clearInterval(loop);
+        
+        
         
         const msgm = setInterval(() => {
             if (loop.clearInterval = true )
-                var jogador = new Jogador(prompt("Digite seu Nome para guardar sua pontuação", ["Insira seu Nick aqui"]))
+                var jogador = new Jogador(prompt("Digite seu Nome para guardar sua pontuação", ["Insira seu Nick aqui"]), score)
                 clearInterval(msgm);
-                console.log(Jogador.name)
+                console.log(jogador)
+                // console.log(score)
+                score = 0;
         }, 50);
-        
-
     }
  //caso não, o jogo continua normalmente.
 }, 10); // essa verificação ocorre de 10 em 10 milisegundos.
