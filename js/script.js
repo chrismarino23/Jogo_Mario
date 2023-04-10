@@ -4,7 +4,7 @@ const mario = document.querySelector('.mario');
 
 /* pegando o elemento html e passando para o JS identificar */
 const pipe = document.querySelector('.pipe');
-
+6t
 /* pegando o elemento cloud */
 const cloud = document.querySelector('.clouds');
 
@@ -85,11 +85,14 @@ const loop = setInterval(() => {
         
         const msgm = setInterval(() => {
             if (loop.clearInterval = true )
+                //adiciona abaixo dados na classe Jogador, com nome e pontuação.
                 var jogador = new Jogador(prompt("Digite seu Nome para guardar sua pontuação", ["Insira seu Nick aqui"]), score)
+                //abaixo limpa o intervalo que deverá ser verificado a mensagem.
                 clearInterval(msgm);
+                //imprime os dados contidos no JOGADOR conforme capturado acima.
                 console.log(jogador)
                 // console.log(score)
-                score = 0;
+                score = 0; // reseta o valor do score
         }, 50);
     }
  //caso não, o jogo continua normalmente.
